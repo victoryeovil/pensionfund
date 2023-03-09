@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="col-6 mx-auto">
+  <h1 class="h3">Application Form for Z.A.P.F events</h1>
+  <div>May you provide <b>correct</b>details</div>
+  <hr />
+  <form name="address_form" class="account-form" method="post" enctype="multipart/form-data">
+    {% if form.errors %}
+    <div class="alert alert-primary" role="alert">
+      Error: Please try again!
+    </div>
+    {% endif %}
+    {% csrf_token %}
+    <label class="small fw-bold">{{ form.event.label}}</label>
+    {{ form.event }}
+    <label class="small fw-bold">{{ form.fund_name.label}}</label>
+    {{ form.fund_name }}
+    <label class="small fw-bold">{{ form.user_email.label}}</label>
+    {{ form.user_email }}
+    <label class="small fw-bold">{{ form.principal_officer.label}}</label>
+    {{ form.principal_officer }}
+    <label class="small fw-bold">{{ form.principal_officer_email.label}}</label>
+    {{ form.principal_officer_email }}
+    <label class="small fw-bold">{{ form.address.label}}</label>
+    {{ form.address }}
+    <label class="small fw-bold">{{ form.phone.label}}</label>
+    {{ form.phone }}
+    <label class="form-check-label" type="checkbox">{{ form.zapf_affiliation.label}}</label>
+    {{ form.zapf_affiliation }}
+    <label class="small fw-bold">{{ form.booking_type.label}}</label>
+    {{ form.booking_type }}
+    <label class="small fw-bold">{{ form.shirt_size.label}}</label>
+    {{ form.shirt_size }}
+    <label class="small fw-bold">{{ form.play_golf.label}}</label>
+    {{ form.play_golf }}
+    <button class="btn btn-primary btn-block py-2 mb-4 mt-4 fw-bold w-100" type="button" value="Submit" onclick="submitForm()">
+    Register
+    </button>
+  </form>
+
+</div>
+
+<script> 
+function submitForm() {
+   var form = document.getElementsByName('address_form')[0];
+   form.submit(); // Submit the form
+   form.reset();  // Reset all form data
+   return false; // Prevent page refresh
+}
+</script>
+{% endblock %}

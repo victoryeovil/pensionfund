@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Downloads</h1>
+            <hr>
+            {% for document in documents %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ document.title }}</h5>
+                    <p class="card-text">{{ document.description }}</p>
+                    <a href="{% url 'document_download' document.id %}" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

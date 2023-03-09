@@ -1,0 +1,15 @@
+
+{% block content %}
+<nav>
+    <div class="nav nav-tabs align-items-baseline" id="nav-tab" role="tablist">
+        {% for event in events %}
+        <button class="nav-link" id="nav-{{ event.title }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ event.title }}" type="button" role="tab" aria-controls="nav-{{ event.title }}" aria-selected="false">
+            <h3>
+                <span>{{ event.title }}</span>
+                <small>{{ event.date }}</small>
+            </h3>
+        </button>
+        {% endfor %}
+    </div>
+</nav>
+{% endblock %}

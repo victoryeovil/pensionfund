@@ -1,0 +1,73 @@
+{% include 'base.html' %}
+<div class="container">
+    {% block content %}
+    <!--
+    <div class="card">
+    {% for i in context %}
+    <div class="card-body">
+    <h1>Title:{{i.title}}</h1>
+    <p>Description:{{i.description}}</p>
+    <h3>File type: {{i.category}}</h3>
+    <h5>DOWNLOAD THE FILE FROM HERE<a href="{{i.file.url}}" download>{{i.title}}</a></h5>
+    </div>
+    {% endfor %}
+    </div> -->
+
+
+    <div class="container">
+        {% if not context %}
+        <div class="col-12">There are currently no products active</div>
+        {% else %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+            {% for product in context %}
+            <div class="col">
+
+                <div class="card-body px-0">
+                    <p class="card-text">
+                    <h4>{{product.title}}</h4><br>
+                    <p>{{ product.description }}</p>
+                    <a class="text-primary text-decoration-none" href="{{ product.file.url }}">
+                        <h6>Click here to Download</h6>
+                    </a>
+                    <br>
+
+                    </p>
+                    <div class="fw-bold">{{product.regular_price}}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</div>
+</div>
+{% endblock %}
+
+<div class="card">
+    {% for i in context %}
+    <h1>{{i.title}}</h1>
+    <p class="price">{{ i.description }}</p>
+    <p>Some text about the jeans..</p>
+    <p><button>Add to Cart</button></p>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+<div class="grid-wrapper">
+    {% for Post in context %}
+    <div class="grid-item">
+        {% if Post.title %}
+        <h4>{{ Post.title }}</h4>
+        <p>{{ Post.description}}</p>
+        <a class="text-primary text-decoration-none" href="{{ product.file.url }}">
+            <h6>Click here to Download</h6>
+        </a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>

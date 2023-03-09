@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "pensionfund",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.autoSave": "afterDelay"
+	}
+}
